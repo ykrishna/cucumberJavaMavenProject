@@ -10,7 +10,7 @@ pipeline {
         stage("build") {
             steps {
                 dir("tmp") {
-                    git changelog: false, poll: false, url: 'git@github.com:ykrishna/cucumberJavaMavenProject.git', branch: 'master'
+                    git changelog: false, poll: false, url: 'https://github.com/ykrishna/cucumberJavaMavenProject.git', branch: 'master'
                     sh 'echo "M2_HOME: ${M2_HOME}"'
                     sh 'echo "JAVA_HOME: ${JAVA_HOME}"'
                     sh 'mvn clean test -Dmaven.test.failure.ignore=true'
@@ -22,7 +22,8 @@ pipeline {
     post {
         always {
             //junit '*/target/surefire-reports/*.xml'
-            archiveArtifacts "target/**/*"
+            //archiveArtifacts "target/**/*"
+            echo 'the end'
         }
     }
 }
