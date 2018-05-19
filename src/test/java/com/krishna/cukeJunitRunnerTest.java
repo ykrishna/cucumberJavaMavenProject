@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {"pretty", "html:target/cucumber"},
-//        glue = {"src/test/java/com/krishna"},
+        //glue = {"src/test/java/com/krishna"},
         features = "src/test/resources/features"
 )
 public class cukeJunitRunnerTest {

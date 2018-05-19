@@ -1,26 +1,16 @@
+/*
+  this is Java 7 style of writing code
+ */
 package com.krishna;
 
-import cucumber.api.PendingException;
-import cucumber.api.java8.En;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
+import cucumber.api.java.en.Given;
 
-/**
- * Created by krishnayalavarthi on 24/03/2018.
- */
-public class MyStepdefs implements En {
+public class MyStepdefs {
 
-    public FirefoxOptions options = new FirefoxOptions().setHeadless(true);
-    public WebDriver driver = new FirefoxDriver(options);
+    private ParentPage parentPage = new ParentPage();
 
-    public MyStepdefs() {
-        Given("^I open \"([^\"]*)\" site$", (String url) -> {
-            // Write code here that turns the phrase above into concrete actions
-            //throw new PendingException();
-            driver.get(url);
-            driver.quit();
-            System.out.println("<------- I am working ----->");
-        });
+    @Given("^I open tablet \"([^\"]*)\" site$")
+    public void iOpenSite(String url) throws Throwable {
+        parentPage.navigate(url);
     }
 }
